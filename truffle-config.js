@@ -23,6 +23,13 @@ module.exports = {
       network_id: "42",
       skipDryRun: true,
     },
+    rinkeby: {
+      provider: () => {
+        return new HDWalletProvider(mnemonic, url);
+      },
+      network_id: "4",
+      skipDryRun: true,
+    },
   },
   compilers: {
     solc: {

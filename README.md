@@ -1,5 +1,11 @@
 # Chainlink Truffle Box
 
+> https://www.youtube.com/watch?v=EzZEx0lumr0&t=447s
+
+> link https://rinkeby.etherscan.io/tx/0x7178f23b18c819543499953629061500a2a00478703f57ad9606be9871367028
+
+> link2 https://rinkeby.etherscan.io/tx/0x2edfee881c285784784881af747fbbc19528b76401a29621e3a1343641ef96e3
+
 <br/>
 <p align="center">
 <a href="https://chain.link" target="_blank">
@@ -62,6 +68,7 @@ You can also run:
 ```bash
 truffle migrate --network kovan --reset
 ```
+
 If you want to use truffle commands.
 
 ### Local Blockchain
@@ -82,7 +89,7 @@ There are 3 helper scripts provided with this box in the scripts directory:
 - `request-data.js`
 - `read-contract.js`
 
-In addition, for working with Chainlink Price Feeds and ChainlinkVRF there are folders respectively. 
+In addition, for working with Chainlink Price Feeds and ChainlinkVRF there are folders respectively.
 
 They can be used by calling them from `npx truffle exec`, for example:
 
