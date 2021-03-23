@@ -2,9 +2,7 @@
 
 > https://www.youtube.com/watch?v=EzZEx0lumr0&t=447s
 
-> link https://rinkeby.etherscan.io/tx/0x7178f23b18c819543499953629061500a2a00478703f57ad9606be9871367028
-
-> link2 https://rinkeby.etherscan.io/tx/0x2edfee881c285784784881af747fbbc19528b76401a29621e3a1343641ef96e3
+> Contract https://rinkeby.etherscan.io/address/0xE462597F858929a48098DDf89E0586Cfc6bfcF78
 
 <br/>
 <p align="center">
