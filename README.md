@@ -1,6 +1,6 @@
 # Chainlink Truffle Box
 
-> https://www.youtube.com/watch?v=EzZEx0lumr0&t=447s
+> https://www.youtube.com/watch?v=EzZEx0lumr0
 
 > Contract https://rinkeby.etherscan.io/address/0xE462597F858929a48098DDf89E0586Cfc6bfcF78
 
