@@ -5,7 +5,6 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@chainlink/contracts/src/v0.6/VRFConsumerBase.sol";
 
 contract DungeonsAndDragonsCharacter is ERC721, VRFConsumerBase {
-
     uint256 internal vrfCoordinator;
     bytes32 internal keyHash;
     uint256 internal fee;
@@ -21,8 +20,9 @@ contract DungeonsAndDragonsCharacter is ERC721, VRFConsumerBase {
 
     Character[] public characters;
 
-    // mappings
-
+    mapping(bytes32 => string) requestToCharacterName;
+    mapping(bytes32 => address) requestToSender;
+    mapping(bytes32 => uint256) requestToTokenId;
 
     /**
      * Constructor inherits VRFConsumerBase
@@ -37,14 +37,52 @@ contract DungeonsAndDragonsCharacter is ERC721, VRFConsumerBase {
         address _linkTokenAddress,
         bytes32 _keyHash
     )
-        VRFConsumerBase(
-            _VRFCoordinator,
-            _linkTokenAddress
-        )
-        ERC721("DungeonsAndDragonsCharacter", "D&D") public
+        public
+        VRFConsumerBase(_VRFCoordinator, _linkTokenAddress)
+        ERC721("DungeonsAndDragonsCharacter", "D&D")
     {
         vrfCoordinator = _VRFCoordinator;
         keyHash = _keyHash;
         fee = 0.1 * 10**18; // 0.1 LINK
+    }
+
+    /**
+     * Requests randomness from a user-provided seed
+     */
+    function requestNewRandomCharacter(
+        uint256 userProvidedSeed,
+        string memory name
+    ) public returns (bytes32) {
+        require(
+            LINK.balanceOf(address(this)) >= fee,
+            "Not enough LINK - fill contract with faucet"
+        );
+        bytes32 requestId = requestRandomness(keyHash, fee, userProvidedSeed);
+        requestToCharacterName[requestId] = name;
+        requestToSender[requestId] = msg.sender;
+        return requestId;
+    }
+
+    /**
+     * Callback function used by VRF Coordinator
+     */
+    function fulfillRandomness(bytes32 requestId, uint256 randomNumber)
+        internal
+        override
+    {
+        uint256 newId = characters.length;
+        uint256 strength = (randomNumber % 100);
+        uint256 speed = ((randomNumber % 10000) / 100);
+        uint256 stamina = ((randomNumber % 1000000) / 10000);
+
+        characters.push(
+            Character(
+                strength,
+                speed,
+                stamina,
+                requestToCharacterName[requestId]
+            )
+        );
+        _safeMint(requestToSender[requestId], newId);
     }
 }
