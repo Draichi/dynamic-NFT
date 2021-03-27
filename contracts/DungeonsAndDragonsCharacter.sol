@@ -5,7 +5,7 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@chainlink/contracts/src/v0.6/VRFConsumerBase.sol";
 
 contract DungeonsAndDragonsCharacter is ERC721, VRFConsumerBase {
-    uint256 internal vrfCoordinator;
+    address internal vrfCoordinator;
     bytes32 internal keyHash;
     uint256 internal fee;
 
