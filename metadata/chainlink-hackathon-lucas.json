@@ -1,0 +1,19 @@
+{
+  "name": "Chainlink Hackathon Lucas",
+  "description": "Lucas NTF character",
+  "image": "https://ipfs.io/ipfs/QmPj9nc6X3hK6pTue3gdzuv3yvW7jzWxg8FZSdDDxap1e6?filename=gettyimages-534857644-612x612.jpg",
+  "attributes": [
+    {
+      "trait_type": "Strength",
+      "value": 73
+    },
+    {
+      "trait_type": "Speed",
+      "value": 26
+    },
+    {
+      "trait_type": "Stamina",
+      "value": 40
+    }
+  ]
+}

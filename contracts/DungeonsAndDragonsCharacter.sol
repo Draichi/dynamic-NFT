@@ -85,4 +85,12 @@ contract DungeonsAndDragonsCharacter is ERC721, VRFConsumerBase {
         );
         _safeMint(requestToSender[requestId], newId);
     }
+
+    function setTokenURI(uint256 tokenId, string memory _tokenURI) public {
+        require(
+            _isApprovedOrOwner(_msgSender(), tokenId),
+            "ERC721: transfer caller is not owner nor approved"
+        );
+        _setTokenURI(tokenId, _tokenURI);
+    }
 }

@@ -1,3 +1,4 @@
 {
-  "solidity.linter": "solhint"
+  "solidity.linter": "solhint",
+  "solidity.lintOnSave": true
 }
